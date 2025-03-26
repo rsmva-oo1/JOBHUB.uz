@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JobHub - Kirish</title>
+    <link rel="stylesheet" href="regstrat.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Sizning mavjud stylinglaringiz */
+      /* ... */
+    </style>
+  </head>
+  <body>
+    <form class="container" id="loginForm">
+      <h1 class="login-title">Kirish</h1>
+
+      <section class="input-box">
+        <input
+          type="text"
+          name="username"
+          id="login-username"
+          placeholder="Foydalanuvchi nomi yoki Email"
+          required
+        />
+        <i class="bx bxs-user"></i>
+      </section>
+
+      <section class="input-box">
+        <input
+          type="password"
+          name="password"
+          id="login-password"
+          placeholder="Parol"
+          required
+        />
+        <i class="bx bxs-lock-alt"></i>
+      </section>
+
+      <section class="remember-forget-box">
+        <div class="remember-me">
+          <input type="checkbox" name="remember-me" id="remember-me" />
+          <label for="remember-me"><h5>Eslab qolish</h5></label>
+        </div>
+        <a class="forget-password" href="#"><h5>Parolni unutdingizmi?</h5></a>
+      </section>
+
+      <button class="login-button" type="submit">Kirish</button>
+
+      <h5 class="dont-have">
+        Akkauntingiz yo'qmi?
+        <a href="registratsiya.html"><b>Ro'yxatdan o'tish</b></a>
+      </h5>
+    </form>
+
+    <script>
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const username = document.getElementById("login-username").value;
+          const password = document.getElementById("login-password").value;
+
+          const users = JSON.parse(localStorage.getItem("users")) || [];
+
+          const user = users.find(
+            (u) =>
+              (u.username === username || u.email === username) &&
+              u.password === password
+          );
+
+          if (user) {
+            localStorage.setItem("currentUser", JSON.stringify(user));
+
+            // Agar "Eslab qolish" belgilangan bo'lsa
+            if (document.getElementById("remember-me").checked) {
+              localStorage.setItem("rememberMe", "true");
+            }
+
+            window.location.href = "index.html";
+          } else {
+            alert("Noto‘g‘ri foydalanuvchi nomi yoki parol!");
+          }
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JobHub - Registratsiya</title>
+    <link rel="stylesheet" href="regstrat.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Sizning mavjud stylinglaringiz */
+      /* ... */
+    </style>
+  </head>
+  <body>
+    <form class="container" id="registrationForm">
+      <h1 class="login-title">Ro'yxatdan o'tish</h1>
+
+      <section class="input-box">
+        <input
+          type="text"
+          name="username"
+          id="reg-username"
+          placeholder="Foydalanuvchi nomi"
+          required
+        />
+        <i class="bx bxs-user"></i>
+      </section>
+
+      <section class="input-box">
+        <input
+          type="email"
+          name="email"
+          id="reg-email"
+          placeholder="Email"
+          required
+        />
+        <i class="bx bxs-envelope"></i>
+      </section>
+
+      <section class="input-box">
+        <input
+          type="password"
+          name="password"
+          id="reg-password"
+          placeholder="Parol"
+          required
+        />
+        <i class="bx bxs-lock-alt"></i>
+      </section>
+
+      <section class="input-box">
+        <input
+          type="password"
+          name="confirm-password"
+          id="reg-confirm-password"
+          placeholder="Parolni tasdiqlang"
+          required
+        />
+        <i class="bx bxs-lock-alt"></i>
+      </section>
+
+      <button class="login-button" type="submit">Ro'yxatdan o'tish</button>
+
+      <h5 class="dont-have">
+        Allaqachon akkauntingiz bormi?
+        <a href="login.html"><b>Kirish</b></a>
+      </h5>
+    </form>
+
+    <script>
+      document
+        .getElementById("registrationForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Parollarni solishtirish
+          const password = document.getElementById("reg-password").value;
+          const confirmPassword = document.getElementById(
+            "reg-confirm-password"
+          ).value;
+
+          if (password !== confirmPassword) {
+            alert("Parollar mos kelmadi!");
+            return;
+          }
+
+          const user = {
+            username: document.getElementById("reg-username").value,
+            email: document.getElementById("reg-email").value,
+            password: password,
+          };
+
+          // LocalStorage ga saqlash
+          let users = JSON.parse(localStorage.getItem("users")) || [];
+          users.push(user);
+          localStorage.setItem("users", JSON.stringify(users));
+          localStorage.setItem("currentUser", JSON.stringify(user));
+
+          // Bosh sahifaga yo'naltirish
+          window.location.href = "index.html";
+        });
+    </script>
+  </body>
+</html>

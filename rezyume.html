@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rezyume</title>
+    <link rel="stylesheet" href="styless.css" />
+    <!-- Font Awesome for the menu icon -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <img class="logo" src="./logo/jse.png" alt="logo" />
+    <!-- <img class="logoo" src="./logo/www.jpg" alt="logo" /> -->
+
+    <h1>Rezyume joylash</h1>
+    <div class="vakans">
+      <form action="register.php" method="POST">
+        <label for="username">Foydalanuvchi nomi:</label>
+        <input type="text" id="username" name="username" required /><br /><br />
+
+        <label for="familya">Foydalanuvchi familyasi:</label>
+        <input
+          type="familya"
+          id="familya"
+          name="familya"
+          required
+        /><br /><br />
+
+        <label for="ish">Ish turi:</label>
+        <select>
+          <option value=""></option>
+          <option value="Onlayn">Onlayn</option>
+          <option value="Offalyn">Offlayn</option></select
+        ><br /><br />
+        <label for="soha">Soha turi:</label>
+        <input type="soha" id="soha" name="soha" required /><br /><br />
+        <label for="daraja">Foydalanuvchi darajasi:</label>
+        <input type="daraja" id="daraja" name="daraja" required /><br /><br />
+        <button class="finish" onclick="finishTest()">Rezyume joylash</button>
+      </form>
+    </div>
+    <div class="past-panel">
+      <div class="panell">
+        <i class="fa-solid fa-house"></i>
+        <br />
+        <a href="index.html">Bosh sahifa</a>
+      </div>
+      <div class="panell">
+        <i class="fa-regular fa-share-from-square"></i>
+        <br />
+        <a href="rezyume.html">Rezyume joylash</a>
+      </div>
+      <div class="panell">
+        <i class="fa-solid fa-download"></i>
+        <br />
+        <a href="vakansiya.html">Vakansiya joylash</a>
+      </div>
+      <div class="panell">
+        <i class="fa-regular fa-comments"></i>
+        <br />
+        <a href="suhbat.html">Suhbatlar</a>
+      </div>
+      <div class="panell">
+        <i class="fa-regular fa-user"></i>
+        <br />
+        <a href="profil.html">Mening profilim</a>
+      </div>
+    </div>
+  </body>
+</html>
